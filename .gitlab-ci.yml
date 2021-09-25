@@ -24,6 +24,9 @@ build:
   image: marcusrickert/docker-docker-ci:latest
   stage: build
   script:
+    - pwd
+    - echo $PWD
+    - ls -l
     - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable snapcraft
   artifacts:
     paths:
