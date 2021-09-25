@@ -1,7 +1,7 @@
 .idea
 *.snap
 configure.sh
-parts/**
+parts
 prime
 stage
 *.log
