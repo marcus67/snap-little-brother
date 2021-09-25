@@ -21,7 +21,7 @@ stages:
   - test
 
 build:
-  image: accso/docker-docker-ci:latest
+  image: marcusrickert/docker-docker-ci:latest
   stage: build
   script:
     - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable snapcraft
