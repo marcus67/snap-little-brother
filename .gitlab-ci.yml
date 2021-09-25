@@ -27,6 +27,7 @@ build:
     - pwd
     - echo $PWD
     - ls -l
+    - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable pwd
     - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable ls -l /build
     - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable ls -l /build/snap
   artifacts:
