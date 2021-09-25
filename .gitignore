@@ -1,0 +1,7 @@
+.idea
+*.snap
+configure.sh
+parts/**
+prime
+stage
+*.log

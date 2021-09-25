@@ -1,0 +1,41 @@
+#    Copyright (C) 2021  Marcus Rickert
+#
+#    See https://github.com/marcus67/snap-little-brother
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+stages:
+  - build
+  - test
+
+build:
+  image: accso/docker-docker-ci:latest
+  stage: build
+  script:
+    - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable snapcraft
+  artifacts:
+    paths:
+      - *.snap
+
+test:
+  image: accso/docker-docker-ci:latest
+  stage: test
+  script:
+    - docker run --privileged --detach --device=/dev/fuse -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /lib/modules:/lib/modules:ro marcusrickert/docker-snap:release-0.2 -v .:/mnt --name snap
+    - docker exec -t snap check-availability.sh
+    - docker exec -t snap install /mnt/little-brother-slave_*.snap --devmode --dangerous
+    - docker exec -t snap stop little-brother-slave
+    - docker exec -t snap services
+    - docker exec -t /snap/bin/little-brother-slave.test-wrapper-app
