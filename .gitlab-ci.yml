@@ -27,7 +27,7 @@ build:
     - docker run -v "$PWD":/build -w /build snapcore/snapcraft:stable snapcraft
   artifacts:
     paths:
-      - *.snap
+      - "*.snap"
 
 test:
   image: accso/docker-docker-ci:latest
