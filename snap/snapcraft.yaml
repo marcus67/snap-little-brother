@@ -14,7 +14,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 name: little-brother-slave
-base: core20
+base: core18
 version: '0.4.9'
 summary: Tool to monitor login times and terminate process if usage times are exceeded
 #contact: little-brother@web.de
@@ -26,7 +26,7 @@ description: |
   to monitor and limit the play time of (young) children. It is designed as a client server application running on
   several hosts and combining playing time spent across these hosts, but it also works on a standalone host.
 
-  When the application determines that a user has exceeded her play time, it will terminate the configured process.
+  When the application determines that a user has exceeded her play time, it will terminate the running process.
   Usually, the user will get several spoken notifications (using the LittleBrotherTaskbar) before she is actually
   kicked out so that she can log out gracefully in time.
 icon: doc/icon-baby-panda-128x128.png
