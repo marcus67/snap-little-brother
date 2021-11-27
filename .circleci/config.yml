@@ -35,7 +35,7 @@ jobs:
       - checkout
       - run:
           name: "Build Snap"
-          command: cd snap  snapcraft
+          command: snapcraft
       - persist_to_workspace:
           root: .
           paths:
