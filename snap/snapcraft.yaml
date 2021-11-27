@@ -17,10 +17,10 @@ name: little-brother-slave
 base: core20
 version: '0.4.9'
 summary: Tool to monitor login times and terminate process if usage times are exceeded
-contact: little-brother@web.de
-issues: https://github.com/marcus67/snap-little-brother/issues
-source-code: https://github.com/marcus67/snap-little-brother
-website:  https://www.facebook.com/littlebrotherdebian
+#contact: little-brother@web.de
+#issues: https://github.com/marcus67/snap-little-brother/issues
+#source-code: https://github.com/marcus67/snap-little-brother
+#website:  https://www.facebook.com/littlebrotherdebian
 description: |
   LittleBrother is a simple parental control application monitoring specific processes (read "games") on Linux hosts
   to monitor and limit the play time of (young) children. It is designed as a client server application running on
