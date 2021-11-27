@@ -15,13 +15,25 @@
 
 name: little-brother-slave
 base: core20
-version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
+version: '0.4.9'
 summary: Tool to monitor login times and terminate process if usage times are exceeded
+contact: little-brother@web.de
+issues: https://github.com/marcus67/snap-little-brother/issues
+source-code: https://github.com/marcus67/snap-little-brother
+website:  https://www.facebook.com/littlebrotherdebian
 description: |
-  Tool to monitor login times and terminate process if usage times are exceeded
+  LittleBrother is a simple parental control application monitoring specific processes (read "games") on Linux hosts
+  to monitor and limit the play time of (young) children. It is designed as a client server application running on
+  several hosts and combining playing time spent across these hosts, but it also works on a standalone host.
+
+  When the application determines that a user has exceeded her play time, it will terminate the configured process.
+  Usually, the user will get several spoken notifications (using the LittleBrotherTaskbar) before she is actually
+  kicked out so that she can log out gracefully in time.
+icon: doc/icon-baby-panda-128x128.png
 
 grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+#confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict
 
 parts:
   configuration:
@@ -54,16 +66,16 @@ parts:
       - python3-wheel
 
     python-packages:
-      - http://192.168.1.3:8080/dist/little-brother-0.4.10.tar.gz
-      - http://192.168.1.3:8080/contrib/python_base_app/dist/python-base-app-0.2.26.tar.gz
+      - little-brother==0.4.9
+      - python-base-app==0.2.25
       - some-flask-helpers
 
 apps:
   test-wrapper-app:
     command: run-little-brother-test-suite
-    plugs: [process-control]
+    plugs: [process-control, network-bind, system-observe]
   wrapper-app:
     command: run-little-brother
     daemon: simple
     restart-condition: always
-    plugs: [process-control]
+    plugs: [process-control, network-bind, system-observe]
