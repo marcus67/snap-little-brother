@@ -31,7 +31,7 @@ description: |
   kicked out so that she can log out gracefully in time.
 icon: doc/icon-baby-panda-128x128.png
 
-grade: devel # must be 'stable' to release into candidate/stable channels
+grade: stable # must be 'stable' to release into candidate/stable channels
 #confinement: devmode # use 'strict' once you have the right plugs and slots
 confinement: strict
 
