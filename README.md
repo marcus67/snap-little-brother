@@ -5,7 +5,11 @@
 
 ## Overview
 
-There is a snap available to run a LittleBrother slave process. The easiest way to use it start as follows:
+There is a snap available to run a LittleBrother slave process. Note that you still need an active slave process
+which is currently not available as snap but only as Debian package. 
+See [here](https://github.com/marcus67/little_brother).
+
+Follow these steps to install and configure the slave process snap:
  
 * Install the [snap daemon](https://snapcraft.io/docs/installing-snapd).    
 

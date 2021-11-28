@@ -22,15 +22,16 @@
 ##################################################################################
 
 # See https://circleci.com/docs/2.0/build-publish-snap-packages/
+# See https://github.com/cibuilds/snapcraft/blob/trunk/README.md
 
 version: 2
 jobs:
   build:
     docker:
       - image: cibuilds/snapcraft:core18
-#        auth:
-#          username: mydockerhub-user
-#          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        auth:
+          username: marcusrickert
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
       - run:
@@ -40,3 +41,32 @@ jobs:
           root: .
           paths:
             - "*.snap"
+
+   publish:
+      docker:
+        - image: cibuilds/snapcraft:core18
+          auth:
+            username: marcusrickert
+            password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+      steps:
+        - attach_workspace:
+            at: .
+        - run:
+            name: "Publish to Store"
+            command: |
+              mkdir .snapcraft
+              echo $SNAPCRAFT_LOGIN_FILE | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
+              snapcraft push *.snap --release stable
+
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main

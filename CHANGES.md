@@ -5,6 +5,10 @@
 
 This document lists all changes of `snap-little-brother` with the most recent changes at the top.
 
+## Version 0.2.0 (September November 28th, 2021)
+
+*   Publish Little-Brother-Slave version 0.4.11 
+
 ## Version 0.1.0 (September 19th, 2021)
 
 *   Initial version 
