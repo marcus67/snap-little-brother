@@ -42,21 +42,21 @@ jobs:
           paths:
             - "*.snap"
 
-   publish:
-      docker:
-        - image: cibuilds/snapcraft:core18
-          auth:
-            username: marcusrickert
-            password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-      steps:
-        - attach_workspace:
-            at: .
-        - run:
-            name: "Publish to Store"
-            command: |
-              mkdir .snapcraft
-              echo $SNAPCRAFT_LOGIN_FILE | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
-              snapcraft push *.snap --release stable
+  publish:
+    docker:
+      - image: cibuilds/snapcraft:core18
+        auth:
+          username: marcusrickert
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: "Publish to Store"
+          command: |
+            mkdir .snapcraft
+            echo $SNAPCRAFT_LOGIN_FILE | base64 --decode --ignore-garbage > .snapcraft/snapcraft.cfg
+            snapcraft push *.snap --release stable
 
 
 workflows:
