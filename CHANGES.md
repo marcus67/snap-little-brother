@@ -5,6 +5,10 @@
 
 This document lists all changes of `snap-little-brother` with the most recent changes at the top.
 
+## Version 0.4.11.3 (December 15th, 2021)
+
+*   Reintroduce defaults for options `port`, `app.secret`, `hostname`, `app.secret`, and `log.level` in `configure.sh`. 
+
 ## Version 0.4.11.2 (December 15th, 2021)
 
 *   Set defaults for options `port`, `app.secret`, `hostname`, and `log.level`. 

@@ -15,7 +15,7 @@
 
 name: little-brother-slave
 base: core18
-version: '0.4.11.2'
+version: '0.4.11.3'
 summary: Tool to monitor login times and terminate process if usage times are exceeded
 #contact: little-brother@web.de
 #issues: https://github.com/marcus67/snap-little-brother/issues

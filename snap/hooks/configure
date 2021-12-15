@@ -21,6 +21,11 @@ hostname="$(snapctl get host.name)"
 log_level="$(snapctl get log.level)"
 port="$(snapctl get port)"
 
+app_secret="${app_secret:-${cat /proc/sys/kernel/random/uuid}}"
+hostname="${hostname:-${HOSTNAME}.snap}"
+log_level="${log_level:-INFO}"
+port="${port:-5555}"
+
 additional_config_file=$SNAP_DATA/etc/little-brother.extra-config
 
 echo "[MasterConnector]" > $additional_config_file
