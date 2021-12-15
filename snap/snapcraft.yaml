@@ -15,20 +15,25 @@
 
 name: little-brother-slave
 base: core18
-version: '0.4.11'
+version: '0.4.11.2'
 summary: Tool to monitor login times and terminate process if usage times are exceeded
 #contact: little-brother@web.de
 #issues: https://github.com/marcus67/snap-little-brother/issues
 #source-code: https://github.com/marcus67/snap-little-brother
 #website:  https://www.facebook.com/littlebrotherdebian
 description: |
-  LittleBrother is a simple parental control application monitoring specific processes (read "games") on Linux hosts
-  to monitor and limit the play time of (young) children. It is designed as a client server application running on
-  several hosts and combining playing time spent across these hosts, but it also works on a standalone host.
+  LittleBrother is a simple parental control application monitoring specific processes
+  (read "games") on Linux hosts to monitor and limit the play time of (young) children.
+  It is designed as a client server application running on several hosts and combining
+  playing time spent across these hosts, but it also works on a standalone host.
 
-  When the application determines that a user has exceeded her play time, it will terminate the running process.
-  Usually, the user will get several spoken notifications (using the LittleBrotherTaskbar) before she is actually
-  kicked out so that she can log out gracefully in time.
+  When the application determines that a user has exceeded her play time, it will
+  terminate the running process. Usually, the user will get several spoken notifications
+  (using the LittleBrotherTaskbar) before she is actually kicked out so that she can log
+  out gracefully in time.
+
+  Note that this slave process requires a matching master process which is not yet
+  available as snap.
 icon: doc/icon-baby-panda-128x128.png
 
 grade: stable # must be 'stable' to release into candidate/stable channels

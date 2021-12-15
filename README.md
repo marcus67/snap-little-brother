@@ -3,9 +3,11 @@
 
 # Snapcraft Support for `LittleBrother`
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/little-brother-slave)
+
 ## Overview
 
-There is a snap available to run a LittleBrother slave process. Note that you still need an active slave process
+There is a snap available to run a LittleBrother slave process. Note that you still need an active master process
 which is currently not available as snap but only as Debian package. 
 See [here](https://github.com/marcus67/little_brother).
 
@@ -19,10 +21,19 @@ Follow these steps to install and configure the slave process snap:
 
 * Configure the snap
 
-      sudo snap little-brother-slave set master.host.url=MASTER_HOST_URL access.token=ACCESS_TOKEN port=PORT
+      sudo snap little-brother-slave set master.host.url=MASTER_HOST_URL access.token=ACCESS_TOKEN
  
-  where `MASTER_HOST_URL` points to your master installation, `ACCESS_TOKEN` is the configured credential of
-  the master, and `PORT` is the port number allocated for the health check.
+  where `MASTER_HOST_URL` points to your master installation and `ACCESS_TOKEN` is the configured credential of
+  the master.
+
+* There are more options which have a reasonable default:
+  * `port`: Port address to reach the health check of the slave. Defaults to 5555. 
+  * `log.level`: Verbosity of the logging. Valid values are: `ERROR`, `WARNING`, `INFO` (default), `DEBUG`
+  * `app.secret`: A random secret that will be used to secure the web access. This is automatically initialized 
+     as a random UUID.
+  * `host.name`: The name that will be used as label for the slave on the master. This value is automatically
+     derived from the variable `${HOSTNAME}` using the suffix `.snap`.
+
 
 * Manually connect the required plugs:
 

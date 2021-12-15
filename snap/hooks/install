@@ -15,3 +15,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 mkdir -p $SNAP_DATA/etc
+
+snapctl set hostname="${HOSTNAME}.snap"
+snapctl set log.level="INFO"
+snapctl set port="5555"
+snapctl set app.secret=$(cat /proc/sys/kernel/random/uuid)
