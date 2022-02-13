@@ -46,6 +46,21 @@ Follow these steps to install and configure the slave process snap:
 
 and you are all set!
 
+## Versioning
+
+The version number of the snap consists of two parts:
+
+    N.N.N.M
+
+The `N.N.N` part refers to the semantic versioning of the `LittleBrother`. 
+See [here](https://github.com/marcus67/little_brother/blob/master/CHANGES.md) for a full descriptions of all changes.
+The `M` part refers to the snap itself. Each release of `LittleBrother` should trigger a new version of the snap using
+`M=0`. If there is trouble with the snap itself the `M` will denote subsequent fixes to the snap.
+
+## Change History 
+
+See [here](CHANGES.md)
+
 ## Security Details
 
 In order for `LittleBrother` to be able to observe and kill processes, the snap has to be allowed to use the 

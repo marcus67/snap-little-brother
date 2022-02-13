@@ -5,9 +5,14 @@
 
 This document lists all changes of `snap-little-brother` with the most recent changes at the top.
 
+## Version 0.4.19.0 (February 13th, 2022)
+
+* Package `LittleBrother` 0.4.19
+* Package `python_base_app` 0.2.36
+
 ## Version 0.4.12.0 (December 30th, 2021)
 
-* Package LittleBrother 0.4.12
+* Package `LittleBrother` 0.4.12
 * Update copyright notices
 
 ## Version 0.4.11.3 (December 15th, 2021)

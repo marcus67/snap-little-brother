@@ -15,7 +15,7 @@
 
 name: little-brother-slave
 base: core18
-version: '0.4.12.0'
+version: '0.4.19.0'
 summary: Tool to monitor login times and terminate process if usage times are exceeded
 #contact: little-brother@web.de
 #issues: https://github.com/marcus67/snap-little-brother/issues
@@ -69,8 +69,8 @@ parts:
       - python3-wheel
 
     python-packages:
-      - little-brother==0.4.12
-      - python-base-app==0.2.26
+      - little-brother==0.4.19
+      - python-base-app==0.2.36
       - some-flask-helpers
 
 apps:
